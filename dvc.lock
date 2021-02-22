@@ -1,0 +1,51 @@
+schema: '2.0'
+stages:
+  example:
+    cmd: python3 -m classification-metrics.classify  --predicted example-data/predicted.json  --true
+      example-data/true.json
+    deps:
+    - path: example-data
+      md5: 6b4d0be904d35d47ab7a210fac7eb9bd.dir
+      size: 526
+      nfiles: 2
+    outs:
+    - path: confusion.json
+      md5: da543eee003a20e7221d34fddc244e5e
+      size: 680
+    - path: metrics.json
+      md5: 05ee5e8ce0a57f6d4fa0021ed7d1147f
+      size: 616
+  example_discrete:
+    cmd: ./evaluate.sh  --predicted example-data/predicted.json --true example-data/true.json
+      --output-dir metrics/discrete --format discrete
+    deps:
+    - path: example-data/predicted.json
+      md5: fe04873f93320c0c18dc396a4100a2e1
+      size: 263
+    - path: example-data/true.json
+      md5: 0419cb172da27c0bb7bb4949d6de8c9a
+      size: 263
+    outs:
+    - path: metrics/discrete/confusion.json
+      md5: da543eee003a20e7221d34fddc244e5e
+      size: 680
+    - path: metrics/discrete/metrics.json
+      md5: 92def4a7ea27055af72f649f4e24c94e
+      size: 677
+  example_probs:
+    cmd: ./evaluate.sh  --predicted example-data/predicted_prob.json --true example-data/true.json
+      --output-dir metrics/probs --format prob
+    deps:
+    - path: example-data/predicted_prob.json
+      md5: 669409655d96c443a3df3bb6ce2692f1
+      size: 942
+    - path: example-data/true.json
+      md5: 0419cb172da27c0bb7bb4949d6de8c9a
+      size: 263
+    outs:
+    - path: metrics/probs/confusion.json
+      md5: da543eee003a20e7221d34fddc244e5e
+      size: 680
+    - path: metrics/probs/metrics.json
+      md5: 8fc567ea907a9205108c6430d4611dd9
+      size: 710

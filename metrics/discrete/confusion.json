@@ -1,0 +1,44 @@
+{
+  "Confusion Matrix": [
+    {
+      "predicted": "class1",
+      "true": "class1"
+    },
+    {
+      "predicted": "class2",
+      "true": "class1"
+    },
+    {
+      "predicted": "class3",
+      "true": "class1"
+    },
+    {
+      "predicted": "class1",
+      "true": "class2"
+    },
+    {
+      "predicted": "class2",
+      "true": "class2"
+    },
+    {
+      "predicted": "class1",
+      "true": "class3"
+    },
+    {
+      "predicted": "class3",
+      "true": "class3"
+    },
+    {
+      "predicted": "class3",
+      "true": "class3"
+    },
+    {
+      "predicted": "class1",
+      "true": "class3"
+    },
+    {
+      "predicted": "class3",
+      "true": "class3"
+    }
+  ]
+}

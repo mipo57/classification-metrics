@@ -1,0 +1,43 @@
+stages:
+  example_discrete: 
+    deps:
+      - example-data/true.json
+      - example-data/predicted.json
+    wdir: .
+    cmd: >-
+      ./evaluate.sh 
+      --predicted example-data/predicted.json
+      --true example-data/true.json
+      --output-dir metrics/discrete
+      --format discrete
+    metrics:
+      - metrics/discrete/metrics.json:
+          cache: false
+    plots:
+      - metrics/discrete/confusion.json:
+          cache: false
+          x: 'true'
+          y: 'predicted'
+          template: 'confusion'
+          title: "Discrete Confusion Matrix"
+  example_probs: 
+    deps:
+      - example-data/true.json
+      - example-data/predicted_prob.json
+    wdir: .
+    cmd: >-
+      ./evaluate.sh 
+      --predicted example-data/predicted_prob.json
+      --true example-data/true.json
+      --output-dir metrics/probs
+      --format prob
+    metrics:
+      - metrics/probs/metrics.json:
+          cache: false
+    plots:
+      - metrics/probs/confusion.json:
+          cache: false
+          x: 'true'
+          y: 'predicted'
+          template: 'confusion'
+          title: "Prob Confusion Matrix"
