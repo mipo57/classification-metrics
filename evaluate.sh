@@ -26,6 +26,7 @@ while test $# -gt 0; do
             ;;
         --output-dir)
             shift
+            mkdir -p $1
             docker_params+=(-v "$(realpath $1)":/home/user/workspace/output)
             script_params+=(--output-dir "/home/user/workspace/output")
             shift
